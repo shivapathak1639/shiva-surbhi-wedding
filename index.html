@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#3b0710">
+<title>Shiva ♥ Surbhi | Royal Rajasthani Wedding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Marcellus&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--maroon:#6e1322;--deep:#2f060d;--gold:#c69a32;--gold2:#efd58a;--cream:#fff7e9;--ink:#3d2025}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Poppins,sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+button,a{font-family:inherit}
+section{position:relative;min-height:100vh;padding:85px 18px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.container{width:100%;max-width:1000px;margin:auto;text-align:center}
+.script{font-family:"Great Vibes",cursive}
+.display{font-family:Marcellus,serif}
+.title{font-family:"Cormorant Garamond",serif;font-size:clamp(44px,10vw,78px);color:var(--maroon)}
+.subtitle{font-family:"Cormorant Garamond",serif;font-size:23px;line-height:1.45}
+.smallcaps{text-transform:uppercase;letter-spacing:4px;font-size:11px}
+.gold{color:var(--gold)}
+.vignette{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 140px rgba(30,0,7,.5);z-index:3}
+
+/* cinematic hero */
+#opening{padding:0;min-height:100svh;background:#2f060d;color:#fff}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) brightness(.7)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,#2f060d66,#2f060dcc);z-index:1}
+.hero-content{position:relative;z-index:4;padding:20px}
+.ganesh{font-size:48px;margin-bottom:15px}
+.hero-kicker{letter-spacing:5px;font-size:11px;text-transform:uppercase}
+.hero-names{font-family:"Great Vibes";font-size:clamp(70px,18vw,140px);line-height:.8;color:var(--gold2);margin:25px 0}
+.hero-and{font-family:"Great Vibes";font-size:48px}
+.hero-date{font-family:Marcellus;font-size:15px;letter-spacing:3px;margin-top:25px}
+.cta{margin-top:38px;padding:16px 32px;border-radius:50px;border:1px solid var(--gold2);background:#6e1322dd;color:white;cursor:pointer;letter-spacing:2px;box-shadow:0 0 35px #c69a3240;transition:.3s}
+.cta:hover{transform:translateY(-3px);background:var(--gold);color:#2f060d}
+.scroll-hint{position:absolute;bottom:25px;z-index:4;font-size:10px;letter-spacing:3px;opacity:.8;animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.3}}
+
+/* decorative particles */
+.spark{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--gold2);animation:rise linear infinite;opacity:.7;z-index:2}
+@keyframes rise{from{transform:translateY(110vh) scale(.5);opacity:0}20%{opacity:.7}to{transform:translateY(-10vh) scale(1.3);opacity:0}}
+
+/* envelope */
+#envelope-section{display:none;background:#f5e2c4}
+.envelope-wrap{width:min(90vw,450px);height:300px;position:relative;cursor:pointer}
+.envelope{position:absolute;inset:0;background:var(--maroon);border-radius:12px;box-shadow:0 25px 70px #3b071033}
+.envelope:before{content:"";position:absolute;left:0;bottom:0;border-style:solid;border-width:150px 225px 0 0;border-color:#540c18 transparent transparent}
+.envelope:after{content:"";position:absolute;right:0;bottom:0;border-style:solid;border-width:0 225px 150px 0;border-color:transparent #540c18 transparent}
+.flap{position:absolute;left:0;top:0;border-left:225px solid transparent;border-right:225px solid transparent;border-top:155px solid #8a1b2c;transform-origin:top;transition:1s;z-index:4}
+.envelope.open .flap{transform:rotateX(180deg)}
+.seal{position:absolute;z-index:8;left:50%;top:112px;transform:translateX(-50%);width:70px;height:70px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;color:#fff;font-family:"Great Vibes";font-size:25px;box-shadow:0 8px 25px #0005}
+.env-hint{position:absolute;bottom:25px;width:100%;z-index:9;color:#fff;letter-spacing:3px;font-size:11px}
+
+/* scratch */
+#scratch-section{display:none;background:#fff8ec}
+.scratch-card{position:relative;width:min(92vw,560px);height:360px;margin:30px auto 0;border-radius:26px;overflow:hidden;box-shadow:0 25px 70px #3b07102a}
+.reveal-card{position:absolute;inset:0;background:#fffdf8;border:2px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.reveal-date{font-family:"Great Vibes";font-size:65px;color:var(--gold);margin:10px}
+#scratchCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:5;touch-action:none}
+.note{margin-top:20px;font-size:12px}
+
+/* video sections */
+.video-section{padding:0;min-height:85vh;background:#2f060d;color:#fff}
+.section-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
+.video-content{position:relative;z-index:4;padding:25px;max-width:800px}
+.video-content .title{color:#fff}
+.play-badge{display:inline-flex;width:74px;height:74px;border:1px solid var(--gold2);border-radius:50%;align-items:center;justify-content:center;font-size:25px;color:var(--gold2);margin-bottom:20px;animation:ring 2s infinite}
+@keyframes ring{50%{box-shadow:0 0 0 14px #c69a3212}}
+
+/* couple */
+#couple{background:#fffdf8}
+.couple-grid{display:grid;grid-template-columns:1fr 100px 1fr;gap:20px;align-items:center;margin-top:40px}
+.person img{width:205px;height:260px;object-fit:cover;border-radius:110px 110px 28px 28px;border:5px solid var(--gold2);box-shadow:0 18px 40px #3b071022}
+.person h3{font:600 35px "Cormorant Garamond";color:var(--maroon);margin-top:15px}.person p{font-size:12px}.heart{font-size:48px;color:var(--gold)}
+
+/* story */
+#story{background:#f3dfc4}.story{max-width:760px;margin:30px auto;font:25px/1.7 "Cormorant Garamond"}
+
+/* events */
+#events{background:#fffdf8}.event-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:35px}.event{background:#fff;border:1px solid #e1c181;border-radius:22px;padding:25px 15px;box-shadow:0 10px 35px #3b07100d;transition:.35s}.event:hover{transform:translateY(-7px);box-shadow:0 18px 45px #3b071018}.event .icon{font-size:31px}.event h3{font:600 28px "Cormorant Garamond";color:var(--maroon);margin:8px}.event .date{color:var(--gold);font-weight:600}.event .time{font-size:13px;margin-top:5px}.event .note{font-size:10px;color:#76585d;margin-top:7px}
+
+/* countdown */
+#countdown{background:var(--maroon);color:#fff}.count-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:700px;margin:35px auto}.count{padding:20px 8px;border:1px solid #efd58a55;border-radius:17px;background:#ffffff0e}.num{font:40px Marcellus;color:var(--gold2)}.lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase}
+
+/* venue */
+#venue{background:#f5e2c4}.venue-card{max-width:720px;margin:30px auto;padding:40px 25px;background:#fffdf8;border:1px solid #e1c181;border-radius:25px;box-shadow:0 18px 50px #3b07101c}.venue-name{font:40px "Cormorant Garamond";color:var(--maroon);margin:10px}.map{display:inline-block;margin-top:22px;padding:14px 25px;border-radius:50px;background:var(--maroon);color:#fff;text-decoration:none;font-size:12px}
+
+/* gallery */
+#gallery{background:#f3dfc4}.gallery{display:flex;gap:15px;overflow-x:auto;padding:25px 0;scroll-snap-type:x mandatory}.gallery::-webkit-scrollbar{display:none}.gallery img{flex:0 0 76%;height:420px;object-fit:cover;border-radius:22px;border:3px solid var(--gold2);scroll-snap-align:center}
+
+/* RSVP */
+#rsvp{background:#fffdf8}.form{max-width:520px;margin:30px auto}.form input,.form select,.form textarea{width:100%;padding:14px;margin-bottom:12px;border:1px solid #dfc39b;border-radius:11px;font-family:Poppins}.submit,.whatsapp{width:100%;border:0;padding:15px;border-radius:50px;cursor:pointer;color:#fff}.submit{background:var(--maroon)}.whatsapp{margin-top:10px;background:#25d366}
+
+/* closing */
+#closing{background:linear-gradient(#3b0710dd,#3b0710ee),url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=85") center/cover;color:#fff;text-align:center}.final{font:clamp(65px,15vw,115px) "Great Vibes";color:var(--gold2);margin:25px 0}.share{margin-top:25px;padding:15px 28px;border:1px solid var(--gold2);background:transparent;color:#fff;border-radius:50px;cursor:pointer}
+
+/* music + floating nav */
+.music{position:fixed;right:18px;bottom:18px;z-index:100;width:55px;height:55px;border:0;border-radius:50%;background:var(--maroon);color:#fff;font-size:20px;box-shadow:0 8px 25px #0005;cursor:pointer}
+.topnav{position:fixed;top:15px;right:15px;z-index:100;display:flex;gap:6px}.topnav button{border:1px solid #efd58a99;background:#3b0710cc;color:#fff;border-radius:30px;padding:8px 11px;font-size:10px;cursor:pointer;backdrop-filter:blur(6px)}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:1s}.reveal.active{opacity:1;transform:none}
+
+@media(max-width:800px){.event-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){section{padding:70px 17px}.couple-grid{grid-template-columns:1fr}.heart{margin:4px}.event-grid{grid-template-columns:1fr}.count-grid{grid-template-columns:repeat(2,1fr)}.gallery img{flex-basis:86%;height:350px}.flap{border-left-width:45vw;border-right-width:45vw}}
+</style>
+</head>
+
+<body>
+
+<!-- CINEMATIC OPENING -->
+<section id="opening">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src="videos/royal-opening.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div id="particles"></div>
+  <div class="hero-content">
+    <div class="ganesh">🪔</div>
+    <div class="hero-kicker">With the blessings of our families</div>
+    <div class="hero-names">Shiva</div>
+    <div class="hero-and">♥</div>
+    <div class="hero-names">Surbhi</div>
+    
+    <button class="cta" onclick="startInvitation()">✦ TAP TO ENTER ✦</button>
+  </div>
+  <div class="scroll-hint">A ROYAL CELEBRATION AWAITS</div>
+  <div class="vignette"></div>
+</section>
+
+<!-- ENVELOPE -->
+<section id="envelope-section">
+  <div class="container">
+    <div class="smallcaps gold">A royal invitation awaits</div>
+    <h1 class="title script" style="margin:10px 0 35px">For You</h1>
+    <div class="envelope-wrap" onclick="openEnvelope()">
+      <div class="envelope" id="envelope">
+        <div class="flap"></div>
+        <div class="seal">S ♥ S</div>
+        <div class="env-hint">TAP TO OPEN</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCRATCH -->
+<section id="scratch-section">
+  <div class="container">
+    <div class="title script">A Little Surprise</div>
+    <p class="subtitle">Scratch the royal gold foil to reveal the date</p>
+    <div class="scratch-card">
+      <div class="reveal-card">
+        <div class="smallcaps gold">Save the Date</div>
+        <div class="display" style="color:#6e1322;font-size:22px;margin-top:8px">SHIVA ♥ SURBHI</div>
+        <div class="reveal-date">22 November 2026</div>
+        <div class="display">The Wedding Day</div>
+        <p style="margin-top:10px;font-size:12px">SwapanLok Resort · 2 PM onwards</p>
+      </div>
+      <canvas id="scratchCanvas"></canvas>
+    </div>
+    <div class="note">👆 Scratch with your finger or mouse</div>
+  </div>
+</section>
+
+<!-- VIDEO MEMORY -->
+<section class="video-section">
+  <video class="section-video" autoplay muted loop playsinline>
+    <source src="videos/royal-gold-loop.mp4" type="video/mp4">
+  </video>
+  <div class="video-content">
+    <div class="play-badge">▶</div>
+    <div class="smallcaps">A celebration of love</div>
+    <div class="title script">A New Chapter Begins</div>
+    <p class="subtitle" style="color:#fff;max-width:650px;margin:20px auto">
+      Two hearts. Two families. One beautiful beginning.
+      Join Shiva and Surbhi as they begin their forever.
+    </p>
+  </div>
+  <div class="vignette"></div>
+</section>
+
+<!-- COUPLE -->
+<section id="couple">
+  <div class="container reveal">
+    <div class="title script">The Couple</div>
+    <p class="subtitle">Two hearts, one royal beginning</p>
+    <div class="couple-grid">
+      <div class="person">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=85" alt="Surbhi placeholder">
+        <h3>Surbhi Sharma</h3><p>With love and blessings of her family</p>
+      </div>
+      <div class="heart">♥</div>
+      <div class="person">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=85" alt="Shiva placeholder">
+        <h3>Shiva Pathak</h3><p>With love and blessings of his family</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section id="story">
+  <div class="container reveal">
+    <div class="title script">Our Beginning</div>
+    <div class="story">
+      <p>Some journeys are written in the stars. Ours is beginning with the blessings of two families and the promise of a lifetime together.</p>
+      <p style="margin-top:20px">We invite you to share the laughter, rituals, music and memories as Shiva and Surbhi begin their beautiful new chapter.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="container reveal">
+    <div class="title script">Wedding Celebrations</div>
+    <p class="subtitle">A royal celebration of traditions and togetherness</p>
+    <div class="event-grid">
+      <div class="event"><div class="icon">🌸</div><h3>Ganesh Sthapana</h3><div class="date">18 November 2026</div><div class="time">Family ceremony</div><div class="note">श्री गणेश स्थापना</div></div>
+      <div class="event"><div class="icon">🌿</div><h3>Tel Chadhana</h3><div class="date">20 November 2026</div><div class="time">As per family schedule</div><div class="note">तेल चढ़ाना</div></div>
+      <div class="event"><div class="icon">🪔</div><h3>Mandal & Matrika Pujan</h3><div class="date">20 November 2026</div><div class="time">As per family schedule</div><div class="note">मंडल कलश एवं मातृका पूजन</div></div>
+      <div class="event"><div class="icon">💍</div><h3>Lagna Ceremony</h3><div class="date">21 November 2026</div><div class="time">1:30 PM onwards</div><div class="note">लग्न समारोह</div></div>
+      <div class="event"><div class="icon">🥁</div><h3>Baraat Prasthan</h3><div class="date">22 November 2026</div><div class="time">1:30 PM – 2:30 PM</div><div class="note">बारात प्रस्थान</div></div>
+      <div class="event"><div class="icon">🐎</div><h3>Agwani & Baraat Swagat</h3><div class="date">22 November 2026</div><div class="time">Wedding day</div><div class="note">अगवानी एवं बारात स्वागत</div></div>
+      <div class="event panigrahana-event"><div class="icon">💍</div><h3>Panigrahana Sanskar</h3><div class="date">22 November 2026</div><div class="time">5:00 PM – 7:30 PM</div><div class="note">Wedding Ceremony · पाणिग्रहण संस्कार</div></div>
+      
+      <div class="event"><div class="icon">🏡</div><h3>Nav Vadhu Griha Pravesh</h3><div class="date">23 November 2026</div><div class="time">Morning</div><div class="note">नव वधू गृह प्रवेश</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section id="countdown">
+  <div class="container">
+    <div class="title script" style="color:#fff">Counting Every Moment</div>
+    <p class="subtitle">Until Shiva & Surbhi begin forever</p>
+    <div class="count-grid">
+      <div class="count"><div class="num" id="days">00</div><div class="lbl">Days</div></div>
+      <div class="count"><div class="num" id="hours">00</div><div class="lbl">Hours</div></div>
+      <div class="count"><div class="num" id="minutes">00</div><div class="lbl">Minutes</div></div>
+      <div class="count"><div class="num" id="seconds">00</div><div class="lbl">Seconds</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VENUE -->
+<section id="venue">
+  <div class="container reveal">
+    <div class="title script">The Wedding Venue</div>
+    <div class="venue-card">
+      <div style="font-size:44px">📍</div>
+      <div class="venue-name">SwapanLok Resort</div>
+      <p>Village Sanjharia, Via Vatika City / Thikaria</p>
+      <p>22 Milestone, Ajmer–Jaipur Expressway, Jaipur, Rajasthan</p>
+      <p style="margin-top:10px"><b>22 November 2026 · 2 PM onwards</b></p>
+      <a class="map" href="https://www.google.com/maps/search/?api=1&query=SwapanLok+Resort+Jaipur+Rajasthan" target="_blank">📍 OPEN GOOGLE MAPS</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container reveal">
+    <div class="title script">Our Memories</div>
+    <p class="subtitle">Replace these sample images with your photographs</p>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85">
+      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85">
+      <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=85">
+      <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85">
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO MEMORIES: add your own wedding clips -->
+<section class="video-section" style="min-height:75vh">
+  <video class="section-video" autoplay muted loop playsinline controls poster="">
+    <source src="videos/couple-story.mp4" type="video/mp4">
+  </video>
+  <div class="video-content">
+    <div class="smallcaps">Our memories</div>
+    <div class="title script">A Little Film Of Us</div>
+    <p style="margin:18px auto;max-width:600px">Add your pre-wedding or engagement video here.</p>
+  </div>
+  <div class="vignette"></div>
+</section>
+
+<!-- RSVP -->
+<section id="rsvp">
+  <div class="container reveal">
+    <div class="title script">Will You Join Us?</div>
+    <p class="subtitle">Your presence will make our celebration complete.</p>
+    <form class="form" onsubmit="submitRSVP(event)">
+      <input id="guestName" type="text" placeholder="Your Name" required>
+      <input id="guestWhatsApp" type="tel" inputmode="numeric" placeholder="WhatsApp Number">
+      <select id="attendance" required>
+        <option value="">Will you attend?</option>
+        <option value="Yes">Yes, I'll be there ❤️</option>
+        <option value="No">Sorry, can't make it</option>
+      </select>
+      <input id="guestCount" type="number" min="0" max="20" placeholder="Number of Guests">
+      <select id="eventChoice">
+        <option value="Wedding">Wedding Ceremony</option>
+        <option value="All Events">All Events</option>
+      </select>
+      <textarea id="message" rows="4" placeholder="Leave a message"></textarea>
+      <button class="submit" type="submit">💌 SUBMIT RSVP</button>
+    </form>
+    <button class="whatsapp" onclick="whatsappRSVP()">💬 RSVP VIA WHATSAPP</button>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section id="closing">
+  <div class="container">
+    <div class="title script" style="color:#fff">We Can't Wait To See You</div>
+    <div class="final">Shiva ♥ Surbhi</div>
+    <div class="display">22 · 11 · 2026</div>
+    <p style="margin-top:10px">SwapanLok Resort · Jaipur</p>
+    <button class="share" onclick="shareInvitation()">📲 SHARE INVITATION</button>
+  </div>
+</section>
+
+<button class="music" id="musicButton" onclick="toggleMusic()">🎵</button>
+<audio id="weddingMusic" loop><source src="music/wedding-song.mp3" type="audio/mpeg"></audio>
+
+<script>
+const WEDDING_DATE = new Date("November 22, 2026 14:00:00+05:30").getTime();
+
+/* floating gold particles */
+const p=document.getElementById("particles");
+for(let i=0;i<35;i++){
+  const s=document.createElement("span");
+  s.className="spark";
+  s.style.left=Math.random()*100+"%";
+  s.style.animationDuration=(5+Math.random()*8)+"s";
+  s.style.animationDelay=(-Math.random()*8)+"s";
+  s.style.opacity=(.25+Math.random()*.6);
+  p.appendChild(s);
+}
+
+/* invitation flow */
+function startInvitation(){
+  document.getElementById("opening").style.display="none";
+  document.getElementById("envelope-section").style.display="flex";
+  window.scrollTo(0,0);
+}
+function openEnvelope(){
+  document.getElementById("envelope").classList.add("open");
+  setTimeout(()=>{
+    document.getElementById("envelope-section").style.display="none";
+    document.getElementById("scratch-section").style.display="flex";
+    window.scrollTo(0,0);
+    initScratch();
+  },1400);
+}
+
+/* scratch card */
+let scratchReady=false;
+function initScratch(){
+ if(scratchReady)return;scratchReady=true;
+ const c=document.getElementById("scratchCanvas"),box=document.querySelector(".scratch-card"),ctx=c.getContext("2d");
+ const w=box.clientWidth,h=box.clientHeight;c.width=w;c.height=h;
+ const g=ctx.createLinearGradient(0,0,w,h);
+ g.addColorStop(0,"#806014");g.addColorStop(.3,"#efd58a");g.addColorStop(.55,"#c69a32");g.addColorStop(1,"#76530e");
+ ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+ ctx.fillStyle="#fff";ctx.font="600 22px Poppins";ctx.textAlign="center";ctx.fillText("✦ SCRATCH TO REVEAL ✦",w/2,h/2);
+ let active=false;
+ const get=e=>{const r=c.getBoundingClientRect(),p=e.touches?e.touches[0]:e;return{x:p.clientX-r.left,y:p.clientY-r.top}};
+ const scratch=e=>{
+   if(!active)return;e.preventDefault();const p=get(e);
+   ctx.globalCompositeOperation="destination-out";ctx.beginPath();ctx.arc(p.x,p.y,30,0,Math.PI*2);ctx.fill();checkScratch();
+ };
+ c.addEventListener("mousedown",()=>active=true);c.addEventListener("mousemove",scratch);window.addEventListener("mouseup",()=>active=false);
+ c.addEventListener("touchstart",e=>{active=true;scratch(e)},{passive:false});c.addEventListener("touchmove",scratch,{passive:false});c.addEventListener("touchend",()=>active=false);
+}
+function checkScratch(){
+ const c=document.getElementById("scratchCanvas"),ctx=c.getContext("2d"),d=ctx.getImageData(0,0,c.width,c.height).data;
+ let clear=0;for(let i=3;i<d.length;i+=4)if(d[i]===0)clear++;
+ if(clear/(d.length/4)>.58){c.style.transition="opacity .8s";c.style.opacity="0";setTimeout(()=>c.style.display="none",800)}
+}
+
+/* countdown */
+function updateCountdown(){
+ const d=WEDDING_DATE-Date.now();
+ if(d<=0)return;
+ document.getElementById("days").innerText=Math.floor(d/86400000);
+ document.getElementById("hours").innerText=String(Math.floor(d%86400000/3600000)).padStart(2,"0");
+ document.getElementById("minutes").innerText=String(Math.floor(d%3600000/60000)).padStart(2,"0");
+ document.getElementById("seconds").innerText=String(Math.floor(d%60000/1000)).padStart(2,"0");
+}
+updateCountdown();setInterval(updateCountdown,1000);
+
+/* music */
+let musicPlaying=false;
+function toggleMusic(){
+ const m=document.getElementById("weddingMusic"),b=document.getElementById("musicButton");
+ if(!musicPlaying){
+  m.play().then(()=>{musicPlaying=true;b.innerText="⏸️"}).catch(()=>alert("Add your MP3 at music/wedding-song.mp3"));
+ }else{m.pause();musicPlaying=false;b.innerText="🎵"}
+}
+
+/* RSVP -> WhatsApp */
+function submitRSVP(e){
+  e.preventDefault();
+
+  const name = document.getElementById("guestName").value.trim();
+  const whatsapp = document.getElementById("guestWhatsApp").value.trim();
+  const attendance = document.getElementById("attendance").value;
+  const guests = document.getElementById("guestCount").value || "0";
+  const event = document.getElementById("eventChoice").value;
+  const message = document.getElementById("message").value.trim();
+
+  const data = {
+    name: name,
+    whatsapp: whatsapp,
+    attendance: attendance,
+    guests: guests,
+    event: event,
+    message: message
+  };
+
+  // IMPORTANT:
+  // Replace the URL below with your Google Apps Script Web App URL.
+  const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbzcSbbt5RzFCzLGqWXQW1GRfVHzI6n5rVx2kEQM33bHPariMh7Ca-EuK0_ag603VE1W/exec";
+
+  if (GOOGLE_SHEET_URL.includes("PASTE_YOUR")) {
+    alert("RSVP is not connected yet. Add your Google Apps Script Web App URL in index.html.");
+    return;
+  }
+
+  const submitButton = document.querySelector(".submit");
+  submitButton.disabled = true;
+  submitButton.innerText = "SENDING...";
+
+  fetch(GOOGLE_SHEET_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8"
+    },
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    alert("Thank you! Your RSVP has been received. ❤️");
+    document.querySelector(".form").reset();
+    submitButton.disabled = false;
+    submitButton.innerText = "💌 SUBMIT RSVP";
+  })
+  .catch((error) => {
+    console.error(error);
+    alert("Unable to submit right now. Please use WhatsApp RSVP.");
+    submitButton.disabled = false;
+    submitButton.innerText = "💌 SUBMIT RSVP";
+  });
+}
+function whatsappRSVP(){
+ const name=document.getElementById("guestName").value||"Guest";
+ const attendance=document.getElementById("attendance").value||"Yes";
+ const guests=document.getElementById("guestCount").value||"1";
+ const event=document.getElementById("eventChoice").value||"Wedding";
+ const msg=`Hi! I am ${name}. ${attendance==="Yes"?"I will attend":"I may not be able to attend"} the wedding of Shiva Pathak & Surbhi Sharma. Event: ${event}. Number of guests: ${guests}. ❤️`;
+ window.open("https://wa.me/919974375830?text="+encodeURIComponent(msg),"_blank");
+}
+
+/* share */
+async function shareInvitation(){
+ const data={title:"Shiva ♥ Surbhi | Wedding Invitation",text:"You are invited to celebrate Shiva & Surbhi's wedding! ❤️",url:location.href};
+ if(navigator.share){try{await navigator.share(data)}catch(e){}}
+ else{await navigator.clipboard.writeText(location.href);alert("Invitation link copied!")}
+}
+
+/* reveal */
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("active")}),{threshold:.15});
+document.querySelectorAll(".reveal").forEach(x=>observer.observe(x));
+</script>
+</body>
+</html>
